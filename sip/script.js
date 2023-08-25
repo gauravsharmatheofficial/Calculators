@@ -29,7 +29,17 @@ setInterval(() => {
 }, 2000);
 
 setInterval(() => {
-    document.querySelector("#investment-am-result").value = monthlyInv.value * ((1 + percentReturn/10));
-    document.querySelector("#est-ret-result").value = "";
-    document.querySelector("#total-val-result").value = "";
+
+    const I = percentReturn.value / 1200;
+    const M = monthlyInv.value;
+    const T = timePeriod.value;
+
+    const inv = M * (12) * T;
+    const est = M * (Math.pow(1 + I, T - 1) / (I)) * (I + 1);
+    const total = inv + est;
+
+    document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${parseInt(inv)}`;
+    document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${parseInt(est)}`;
+    document.querySelector("#total-val-result").innerHTML = `Total value: ${parseInt(total)}`;
+
 }, 200)

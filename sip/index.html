@@ -18,9 +18,30 @@
             <input id="monthly-investment" type="number" placeholder="₹ (Indian Rupee)" min="0" max="100000">
             <input type="range" name="investment" id="monthly-investment-range" min="0" max="100000">
         </div>
-    
-    </siv>
-    
-    <script src="script.js"></script>
+
+        <div class="sip-div">
+            <label for="#percent-return">Expected Return Rate</label>
+            <input id="percent-return" type="number" placeholder="% (Percent)" min="0" max="30">
+            <input type="range" name="investment" id="percent-return-range" min="0" max="30">
+        </div>
+
+        <div class="sip-div">
+            <label for="#time-period">Time Period</label>
+            <input id="time-period" type="number" placeholder="Yr (Year)" min="1" max="40">
+            <input type="range" name="investment" id="time-period-range" min="1" max="40">
+        </div>
+
+        <div>
+            <ul id="output-list">
+                <li id="investment-am-result">Invested amount: -- </li>
+                <li id="est-ret-result">Est. returns: -- </li>
+                <li id="total-val-result">Total value: -- </li>
+            </ul>
+        </div>
+
+        </siv>
+
+        <script src="script.js"></script>
 </body>
+
 </html>

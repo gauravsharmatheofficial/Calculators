@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+#sip-calc{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+
+    height: 600px;
+    width: 450px;
+}
+
+label{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.sip-div{
+    width: calc(100% - 50px);
+    height: 100px;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    gap: 10px;
+    flex-wrap: wrap;
+} 
+
+#monthly-investment{
+    width: 100px;
+    padding: 10px;
+
+    background: #c9ffe1;
+    color: rgba(0, 0, 0, 0.8);
+    border-style: none;
+    border-radius: 5px;
+
+    outline: 0;
+}
+
+#monthly-investment-range{
+    width: calc(100% - 100px);
+}
+
+#monthly-investment-range::-moz-range-thumb {
+    box-shadow: 0px 0px 10px black;
+}

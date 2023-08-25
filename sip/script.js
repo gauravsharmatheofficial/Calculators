@@ -1,10 +1,21 @@
+// for taking user input from investment.
 const monthlyInv = document.querySelector("#monthly-investment");
 const monthlyInvRange = document.querySelector("#monthly-investment-range");
 
 monthlyInvRange.addEventListener("change", () => {
-    monthlyInv.value = `${monthlyInvRange.value}`;
+    monthlyInv.value = monthlyInvRange.value;
+})
+
+// for taking user input from percentage.
+const percentReturn = document.querySelector("#percent-return");
+const percentReturnRange = document.querySelector("#percent-return-range");
+
+percentReturnRange.addEventListener("change", () => {
+    percentReturn.value = percentReturnRange.value;
 })
 
 setInterval(() => {
     monthlyInvRange.value = monthlyInv.value;
+    percentReturnRange.value = percentReturn.value;
 }, 2000);
+

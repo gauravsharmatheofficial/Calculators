@@ -7,6 +7,32 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.lumpsum-btn{
+    width: 100px;
+    padding: 5px 20px;
+
+    outline: 0;
+    border-style: none;
+    border-radius: 5px;
+
+    background: rgb(202, 235, 222);
+    color: green;
+    cursor: pointer;
+}
+
+.lumpsum-btn:hover{
+    background: rgb(182, 228, 210);
+}
+
+.selected{
+    background: black;
+    color: white;
+}
+.selected:hover{
+    background: black;
+}
+
+
 #sip-calc {
     position: fixed;
     top: 50%;

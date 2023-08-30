@@ -2,6 +2,13 @@
 const monthlyInv = document.querySelector("#monthly-investment");
 const monthlyInvRange = document.querySelector("#monthly-investment-range");
 
+const lumpsumBtn = document.querySelector(".lumpsum-btn");
+let calc_lupsum = false;
+lumpsumBtn.addEventListener("click", () => {
+    calc_lupsum = !calc_lupsum;
+    lumpsumBtn.classList.toggle("selected");
+})
+
 monthlyInvRange.addEventListener("change", () => {
     monthlyInv.value = monthlyInvRange.value;
 })
@@ -29,17 +36,22 @@ setInterval(() => {
 }, 2000);
 
 setInterval(() => {
+    
+    const I = (percentReturn.value) / 1200;
+    const M = (monthlyInv.value);
+    const T = (timePeriod.value);
 
-    const I = percentReturn.value / 1200;
-    const M = monthlyInv.value;
-    const T = timePeriod.value;
+    let N = T;
+    if(!calc_lupsum) {
+        N = T * 12;
+    }
 
-    const inv = M * (12) * T;
-    const est = M * (Math.pow(1 + I, T - 1) / (I)) * (I + 1);
-    const total = inv + est;
+    const inv = parseInt(M * (12) * T);
+    const total = parseInt(M * (Math.pow(I + 1, N) - 1) * (I + 1) / (I));
+    const est = total - inv;
 
-    document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${parseInt(inv)}`;
-    document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${parseInt(est)}`;
-    document.querySelector("#total-val-result").innerHTML = `Total value: ${parseInt(total)}`;
+    document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${inv}`;
+    document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${est}`;
+    document.querySelector("#total-val-result").innerHTML = `Total value: ${total}`;
 
 }, 200)

@@ -6,6 +6,14 @@ const lumpsumBtn = document.querySelector(".lumpsum-btn");
 let calc_lupsum = false;
 lumpsumBtn.addEventListener("click", () => {
     calc_lupsum = !calc_lupsum;
+    if(calc_lupsum)
+    {
+        lumpsumBtn.innerText = 'Lumpsum ✔ ';
+    }
+    else
+    {
+        lumpsumBtn.innerText = 'Lumpsum ✗ ';
+    }
     lumpsumBtn.classList.toggle("selected");
 })
 
@@ -36,7 +44,6 @@ setInterval(() => {
 }, 2000);
 
 setInterval(() => {
-    
     const I = (percentReturn.value) / 1200;
     const M = (monthlyInv.value);
     const T = (timePeriod.value);
@@ -50,8 +57,12 @@ setInterval(() => {
     const total = parseInt(M * (Math.pow(I + 1, N) - 1) * (I + 1) / (I));
     const est = total - inv;
 
-    document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${inv}`;
-    document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${est}`;
-    document.querySelector("#total-val-result").innerHTML = `Total value: ${total}`;
 
+    if(est >= 0 && total >= 0) 
+    {
+        document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${inv}`;
+        document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${est}`;
+        document.querySelector("#total-val-result").innerHTML = `Total value: ${total}`;
+    }
+        
 }, 200)

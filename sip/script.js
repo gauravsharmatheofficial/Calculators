@@ -4,17 +4,42 @@ const monthlyInvRange = document.querySelector("#monthly-investment-range");
 
 const lumpsumBtn = document.querySelector(".lumpsum-btn");
 let calc_lupsum = false;
+
+const sipbtn = document.querySelector(".sip-btn");
+sipbtn.classList.add('selected');
+
 lumpsumBtn.addEventListener("click", () => {
     calc_lupsum = !calc_lupsum;
-    if(calc_lupsum)
+
+    if (calc_lupsum)
     {
+        document.querySelector(".sip-btn").innerText = 'SIP ✗';
         lumpsumBtn.innerText = 'Lumpsum ✔ ';
     }
     else
     {
+        document.querySelector(".sip-btn").innerText = 'SIP ✔';
         lumpsumBtn.innerText = 'Lumpsum ✗ ';
     }
     lumpsumBtn.classList.toggle("selected");
+    document.querySelector(".sip-btn").classList.toggle('selected');
+})
+
+sipbtn.addEventListener("click", () => {
+    calc_lupsum = !calc_lupsum;
+
+    if (calc_lupsum)
+    {
+        document.querySelector(".sip-btn").innerText = 'SIP ✗';
+        lumpsumBtn.innerText = 'Lumpsum ✔ ';
+    }
+    else
+    {
+        document.querySelector(".sip-btn").innerText = 'SIP ✔';
+        lumpsumBtn.innerText = 'Lumpsum ✗ ';
+    }
+    lumpsumBtn.classList.toggle("selected");
+    document.querySelector(".sip-btn").classList.toggle('selected');
 })
 
 monthlyInvRange.addEventListener("change", () => {
@@ -49,7 +74,8 @@ setInterval(() => {
     const T = (timePeriod.value);
 
     let N = T;
-    if(!calc_lupsum) {
+    if (!calc_lupsum)
+    {
         N = T * 12;
     }
 
@@ -58,11 +84,10 @@ setInterval(() => {
     const est = total - inv;
 
 
-    if(est >= 0 && total >= 0) 
-    {
+    if (est >= 0 && total >= 0) {
         document.querySelector("#investment-am-result").innerHTML = `Invested amount: ${inv}`;
         document.querySelector("#est-ret-result").innerHTML = `Est. returns: ${est}`;
         document.querySelector("#total-val-result").innerHTML = `Total value: ${total}`;
     }
-        
+
 }, 200)
